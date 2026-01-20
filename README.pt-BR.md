@@ -3,18 +3,7 @@ Challenge Xor TryHackMe
 
 Analise de vulnerabilidade em Xor.
 
-Isso melhora leitura e syntax highlight.
-
 ---
-
-## 🧠 Minha recomendação final de estrutura
-
-Abaixo está uma **versão refinada**, em **português**, já pensada para portfólio.
-
-👉 Você pode usar exatamente assim como `README.pt-BR.md`.
-
----
-
 # 🛡️ XOR Cryptanalysis Challenge — Write-up
 
 Este repositório contém a solução de um desafio de criptografia baseado em **Ataque de Texto em Claro Conhecido (Known Plaintext Attack)** aplicado a uma implementação insegura de **XOR**.
@@ -31,13 +20,13 @@ O servidor (`server.py`) opera na porta **1337** e executa o seguinte fluxo:
 2. Aplica a operação **XOR** entre uma flag falsa (`THM{thisisafakeflag}`) e a chave
 3. Envia o resultado codificado em **hexadecimal** ao cliente
 4. Solicita a chave de criptografia  
-   - Caso a chave esteja correta, o servidor retorna a **flag real** armazenada em `flag.txt`
+   - Caso a chave passada esteja correta, o servidor retorna a **flag real** armazenada em `flag.txt`
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Python 3** — Automação e análise
+- **Python 3** — Automação do bruteforce e análise do código
 - **Pwntools** — Biblioteca para exploração de serviços de rede
 - **Criptografia XOR** — Cifra simétrica reversível
 
@@ -47,7 +36,7 @@ O servidor (`server.py`) opera na porta **1337** e executa o seguinte fluxo:
 
 A vulnerabilidade explorada está na própria natureza da operação XOR.
 
-Sabendo que: known-plaintext attack.
+Sabendo que: KPA -> known-plaintext attack (ataque de texto plano conhecido)
 
 - Temos o **Texto Criptografado (C)** - 
 - Conhecemos parte do **Texto Original (P)**  
@@ -60,6 +49,8 @@ P \oplus K = C \Rightarrow K = P \oplus C
 \]
 
 Utilizando os **4 primeiros bytes** do texto hexadecimal recebido, é possível extrair os **4 primeiros caracteres da chave**.
+
+Pois sabemos que o padrão da chave 'THM{'
 
 Como a chave possui exatamente **5 caracteres**, o ataque se resume a um **brute force controlado** apenas sobre o último caractere.
 
