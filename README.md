@@ -4,7 +4,7 @@ Challenge Xor TryHackMe
 Analise de vulnerabilidade em Xor.
 
 ---
-# 🛡️ XOR Cryptanalysis Challenge — Write-up
+# XOR Cryptanalysis Challenge — Write-up
 
 Este repositório contém a solução de um desafio de criptografia baseado em **Ataque de Texto em Claro Conhecido (Known Plaintext Attack)** aplicado a uma implementação insegura de **XOR**.
 
@@ -12,7 +12,7 @@ O objetivo do desafio é explorar uma falha criptográfica em um serviço de red
 
 ---
 
-## 📝 Descrição do Desafio
+## Descrição do Desafio
 
 O servidor (`server.py`) opera na porta **1337** e executa o seguinte fluxo:
 
@@ -24,7 +24,7 @@ O servidor (`server.py`) opera na porta **1337** e executa o seguinte fluxo:
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Python 3** — Automação do bruteforce e análise do código
 - **Pwntools** — Biblioteca para exploração de serviços de rede
@@ -32,7 +32,7 @@ O servidor (`server.py`) opera na porta **1337** e executa o seguinte fluxo:
 
 ---
 
-## 🧠 Lógica de Exploração
+## Lógica de Exploração
 
 A vulnerabilidade explorada está na própria natureza da operação XOR.
 
@@ -56,7 +56,7 @@ Como a chave possui exatamente **5 caracteres**, o ataque se resume a um **brute
 
 ---
 
-## 📜 Script de Resolução (`xor.py`)
+## Script de Resolução (`xor.py`)
 
 ```python
 import string
